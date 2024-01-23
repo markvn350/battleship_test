@@ -1,0 +1,36 @@
+<div class="boards">
+    
+    <div class="board">
+        <div *ngFor="let x of xmax; index as i" class="board__contenedor">
+            <div *ngFor="let y of ymax; index as j "  class="board__base">
+                
+                <div *ngIf="i != 0 && j !=0 && (i+j)%2 == 0" class="board__par " #el{{j}}{{i}}  (click)="check(i,j,1)" id="pos1{{j}}{{i}}"></div>
+                <div *ngIf="i != 0 && j !=0 && (i+j)%2 == 1" class="board__impar " #el{{j}}{{i}}  (click)="check(i,j,1)" id="pos1{{j}}{{i}}"></div>
+                <div *ngIf=" i == 0 && j != 0" class="board__nbase">{{j}}</div>
+                <div *ngIf=" j ==0 && i !=0" class="board__nbase">{{i}}</div>
+                <div *ngIf=" j ==0 && i ==0" class="board__nbase"></div>
+            </div>
+        </div>
+    </div>
+    
+     <div class="board">
+        <div *ngFor="let x of xmax; index as i" class="board__contenedor">
+            <div *ngFor="let y of ymax; index as j" class="board__base">
+                
+                <div *ngIf="i != 0 && j !=0 && (i+j)%2 == 0" class="board__par " #el{{j}}{{i}} (click)="check(i,j,2)" id="pos2{{j}}{{i}}"></div>
+                <div *ngIf="i != 0 && j !=0 && (i+j)%2 == 1" class="board__impar " #el{{j}}{{i}} (click)="check(i,j,2)" id="pos2{{j}}{{i}}"></div>
+                <div *ngIf=" i == 0 && j != 0" class="board__nbase">{{j}}</div>
+                <div *ngIf=" j ==0 && i !=0" class="board__nbase">{{i}}</div>
+                <div *ngIf=" j ==0 && i ==0" class="board__nbase"></div>
+            </div>
+        </div>
+     </div>
+         
+ </div>
+
+    <a (click)="inicialize()">Iniciar</a>
+    <a (click)="reset()">Reset</a>
+ 
+ <div class="container d-flex-block d-flex col">
+     <div class="mx-auto" id="status"></div>
+ </div>
